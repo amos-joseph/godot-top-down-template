@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl8datdojfp47"
-path="res://.godot/imported/Water.png-ace565dfa6e52e7d755da51ceae7aeb7.ctex"
+uid="uid://cqdul7dbpkxil"
+path="res://.godot/imported/Grass_Slopes.png-c7e1eed498f1ec17ab7672d769501a43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrain/Water.png"
-dest_files=["res://.godot/imported/Water.png-ace565dfa6e52e7d755da51ceae7aeb7.ctex"]
+source_file="res://assets/terrain/Grass_Slopes.png"
+dest_files=["res://.godot/imported/Grass_Slopes.png-c7e1eed498f1ec17ab7672d769501a43.ctex"]
 
 [params]
 
