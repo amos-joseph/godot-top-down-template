@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs10cxw3vgp8v"]
+
+[ext_resource type="Script" path="res://Sign.gd" id="1_wywhh"]
+[ext_resource type="Texture2D" uid="uid://c1cfganir1jal" path="res://assets/sprites/signs.png" id="2_83327"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2go43"]
+size = Vector2(14, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_seshh"]
+radius = 13.0384
+
+[node name="Sign" type="StaticBody2D"]
+position = Vector2(-140, -28)
+script = ExtResource("1_wywhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -1)
+shape = SubResource("RectangleShape2D_2go43")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_83327")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_seshh")

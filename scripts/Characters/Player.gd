@@ -15,6 +15,5 @@ func _physics_process(delta):
 	else:
 		sprite.play("idle")
 		
-
 	move_and_slide()
 	# position = Vector2(snapped(position.x, 1), snapped(position.y, 1))

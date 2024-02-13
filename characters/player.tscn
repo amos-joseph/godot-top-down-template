@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bg4ruxorx1pgd"]
 
-[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_73k3p"]
+[ext_resource type="Script" path="res://scripts/Characters/Player.gd" id="1_6kyp8"]
 [ext_resource type="Texture2D" uid="uid://co6r3d064vxg0" path="res://assets/sprites/chacter-idle.png" id="2_ryhs2"]
 [ext_resource type="Texture2D" uid="uid://c1whuodomcvpd" path="res://assets/sprites/chacter-walk.png" id="2_tpe8d"]
 
@@ -134,7 +134,7 @@ animations = [{
 
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(92, 182)
-script = ExtResource("1_73k3p")
+script = ExtResource("1_6kyp8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uient")

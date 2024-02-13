@@ -9,8 +9,7 @@ class_name ChickenFollow
 var player: CharacterBody2D  
 var follow_distance
 var direction
-var collision_timer = 0.0
-var collision_dir: Vector2
+var collision_normal:Vector2 = Vector2(0,0)
 
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
@@ -18,18 +17,12 @@ func enter():
 	collision.collision.connect(_on_collide)
 
 func update_physics(delta: float):
-	var direction = player.global_position - parent.global_position
+	direction = player.global_position - parent.global_position
 	
-	if collision_timer > 0:
-		parent.velocity = collision_dir * move_speed
-		collision_timer -= delta
+	if direction.length() > follow_distance:
+		parent.velocity = (direction.normalized() + collision_normal) * move_speed
 		sprite.play("walk")
-	elif direction.length() > follow_distance:
-		parent.velocity = direction.normalized() * move_speed
-		sprite.play("walk")
-	else:
-		sprite.play("idle")
-		parent.velocity = Vector2()
+		collision_normal = Vector2(0,0)
 		
 	if direction.length() > 100:
 		transitioned.emit(self, "ChickenWander")
@@ -37,7 +30,5 @@ func update_physics(delta: float):
 	parent.move_and_slide()
 	
 func _on_collide(rid:RID, normal:Vector2):
-	if rid == player.get_rid():
-		collision_dir = normal
-		collision_timer = 1
+		collision_normal = normal
 	

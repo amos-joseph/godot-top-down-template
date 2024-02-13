@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cqdul7dbpkxil" path="res://assets/terrain/Grass_Slopes.png" id="7_kw6cm"]
 [ext_resource type="Texture2D" uid="uid://bf8tw7g4rt6bw" path="res://assets/terrain/fences.png" id="8_sph2s"]
 [ext_resource type="PackedScene" uid="uid://ctguebdbma4hu" path="res://characters/chicken.tscn" id="9_gelda"]
-[ext_resource type="PackedScene" uid="uid://c732w6c7drl2w" path="res://text_box.tscn" id="11_7qwfh"]
+[ext_resource type="PackedScene" uid="uid://bs10cxw3vgp8v" path="res://Sign.tscn" id="11_vhtyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3upmm"]
 texture = ExtResource("1_w7c7f")
@@ -2556,19 +2556,22 @@ position = Vector2(-145, -92)
 [node name="Chicken3" parent="." instance=ExtResource("9_gelda")]
 position = Vector2(-156, 18)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ChickenGate" type="StaticBody2D" parent="."]
 position = Vector2(-48, -23)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenGate"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_xb55c")
 one_way_collision = true
 metadata/_edit_lock_ = true
 
-[node name="MarginContainer" parent="." instance=ExtResource("11_7qwfh")]
-offset_left = -36.0
-offset_top = -22.0
-offset_right = -4.0
-offset_bottom = 10.0
+[node name="Sign" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_vhtyj")]
+player = NodePath("../Player")
+sign_text = "Hello There! Welcome to the Chicken Ranch."
+
+[node name="Sign2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_vhtyj")]
+position = Vector2(8, -24)
+player = NodePath("../Player")
+sign_text = "Here is the chicken pen. Round up the chickens by pushing them into the pen!"

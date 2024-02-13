@@ -3,8 +3,7 @@ extends MarginContainer
 @export var label: Label
 @export var timer: Timer
 
-var player: CharacterBody2D  
-const MAX_WIDTH = 448
+const MAX_WIDTH = 248
 
 var text = ""
 var letter_index = 0
@@ -14,11 +13,7 @@ var punctuation_time = 0.2
 
 signal finished_displaying()
 
-func _ready():
-	player = get_tree().get_first_node_in_group("Player")
-	display_text("Here is some text to display!")
-
-func display_text(text_to_display: String):
+func display_text(position: Vector2, text_to_display: String):
 	text = text_to_display
 	label.text = text_to_display
 	await resized
@@ -30,11 +25,6 @@ func display_text(text_to_display: String):
 		await resized
 		custom_minimum_size.y = size.y
 		
-	global_position.x = player.position.x - size.x / 2
-	global_position.y = player.position.y - size.y / 2 + 50
-	#label.text = ""
+	global_position.x = position.x - size.x / 2
+	global_position.y = position.y - size.y / 2 + 100
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
